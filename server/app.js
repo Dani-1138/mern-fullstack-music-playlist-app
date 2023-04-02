@@ -25,7 +25,7 @@ app.use("/api/albums/", albumsRout);
 const songsRout = require("./routes/songs");
 app.use("/api/songs/", songsRout);
 
-mongoose.connect("mongodb+srv://Daniel:DMFhab1138@cluster0.46u6xze.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser : true});
+mongoose.connect(process.env.DATABASE, {useNewUrlParser : true});
 mongoose.connection
 .once("open", ()=> console.log("connected"))
 .on("error", (error) => {
